@@ -4,20 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resposta exercicio 8</title>
+    <title>Resposta exercicio 10</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Resposta do exercício 8</h1>
+    <h1>Resposta do exercício 10</h1>
     <?php
         if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             try {
-                $temp = (int) $_POST['temp'] ?? 0;
+                $altura = (int) $_POST['altura'] ?? 0;
+                $largura = (int) $_POST['largura'] ?? 0;
                 // +   -   *   /   %   ++   --  **
                
-                $resultado = ($temp - 32) / 1.8;
-                echo "<p>Temperatura em C°: $resultado </p>";
+                $perimetro = ($altura + $largura) * 2;
+                echo "<p>O perímetro do retângulo é: $perimetro </p>";
                 
             } catch (Exception $e) {
                 echo "Erro! " . $e->getMessage();
