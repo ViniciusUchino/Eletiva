@@ -12,41 +12,41 @@
 	<main class="container">
 		<?php
 			
-			function converterData(string $data): DateTime {
+			function converterData(string $dataEntrada): DateTime {
 				
-				$partes = explode('/', $data);
-				return new DateTime("{$partes[2]}-{$partes[1]}-{$partes[0]}");
+				$partesData = explode('/', $dataEntrada);
+				return new DateTime("{$partesData[2]}-{$partesData[1]}-{$partesData[0]}");
 			}
 
 			if ($_SERVER['REQUEST_METHOD'] == "POST") {
 				try {
 					
-					$data1 = (string) $_POST['data1'];
-					$data2 = (string) $_POST['data2'];
+					$dataInicial = (string) $_POST['dataInicial'];
+					$dataFinal = (string) $_POST['dataFinal'];
 
 					
-					$dateTime1 = converterData($data1);
-					$dateTime2 = converterData($data2);
+					$dateTimeInicial = converterData($dataInicial);
+					$dateTimeFinal = converterData($dataFinal);
 
 					
-					$diferenca = $dateTime1->diff($dateTime2);
+					$diferencaDatas = $dateTimeInicial->diff($dateTimeFinal);
 
 					
-					echo "<p>A diferença entre as datas <strong>$data1</strong> e <strong>$data2</strong> é de <strong>{$diferenca->days}</strong> dias.</p>";
+					echo "<p>A diferença entre as datas <strong>$dataInicial</strong> e <strong>$dataFinal</strong> é de <strong>{$diferencaDatas->days}</strong> dias.</p>";
 					
-				} catch (Exception $e) {
-					echo "Erro: " . $e->getMessage();
+				} catch (Exception $erro) {
+					echo "Erro: " . $erro->getMessage();
 				}
 			}
 		?>
 		<form method="POST">
 			<div class="mb-3">
-				<label for="data1" class="form-label">Digite a primeira data (dd/mm/yyyy):</label>
-				<input type="text" class="form-control" id="data1" name="data1" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+				<label for="dataInicial" class="form-label">Digite a primeira data (dd/mm/yyyy):</label>
+				<input type="text" class="form-control" id="dataInicial" name="dataInicial" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
 			</div>
 			<div class="mb-3">
-				<label for="data2" class="form-label">Digite a segunda data (dd/mm/yyyy):</label>
-				<input type="text" class="form-control" id="data2" name="data2" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+				<label for="dataFinal" class="form-label">Digite a segunda data (dd/mm/yyyy):</label>
+				<input type="text" class="form-control" id="dataFinal" name="dataFinal" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
 			</div>
 			<button type="submit" class="btn btn-primary">Calcular Diferença</button>
 		</form>
