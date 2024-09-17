@@ -11,27 +11,27 @@
 <body>
 	<main class="container">
 		<?php
-			// Função para converter data no formato dd/mm/yyyy para objeto DateTime
+			
 			function converterData(string $data): DateTime {
-				// Converte a string em formato dd/mm/yyyy para o formato DateTime
+				
 				$partes = explode('/', $data);
 				return new DateTime("{$partes[2]}-{$partes[1]}-{$partes[0]}");
 			}
 
 			if ($_SERVER['REQUEST_METHOD'] == "POST") {
 				try {
-					// Captura as datas enviadas pelo formulário
+					
 					$data1 = (string) $_POST['data1'];
 					$data2 = (string) $_POST['data2'];
 
-					// Converte as strings em objetos DateTime
+					
 					$dateTime1 = converterData($data1);
 					$dateTime2 = converterData($data2);
 
-					// Calcula a diferença entre as datas
+					
 					$diferenca = $dateTime1->diff($dateTime2);
 
-					// Exibe o resultado em dias
+					
 					echo "<p>A diferença entre as datas <strong>$data1</strong> e <strong>$data2</strong> é de <strong>{$diferenca->days}</strong> dias.</p>";
 					
 				} catch (Exception $e) {
