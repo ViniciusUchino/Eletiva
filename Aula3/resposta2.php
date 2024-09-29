@@ -20,7 +20,7 @@
             echo"<p>Subtração:".($a - $b)."</p>";
         }
 
-        function saudacao(string $nome = "Visitante") : void {
+        function entrada(string $nome = "Visitante") : void {
             echo "<p> Olá $nome!</p>";
         }
         if($_SERVER['REQUEST_METHOD'] == "POST"){

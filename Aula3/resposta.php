@@ -13,14 +13,13 @@
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             try{
                 $valor = $_POST['valor'];
-                #Funções de String
+                
                 $qtd_caracteres = strlen($_valor);
                 echo"<p>Quantidade de caracteres $qtd_caracteres</p>";
                 $maiusculo = strtoupper($_valor);
                 $minusculo = strtolower($valor);
                 echo"<p>Maiusculo: $maiusculo</p>";
                 echo"<p>Minusculo: $minusculo</p>";
-                #Funções de data
                 $dia = 30;
                 $mes = 2;
                 $ano = 2024;
@@ -29,7 +28,6 @@
                 }else {
                     echo"<p>Data inválida!</p>";
                 }
-                #Funções númericas
                 $menor = min(1, 2, 3, 4, 5);
                 echo"<p> Menor Valor: $menor </p>";
                 $maior = max(1, 2, 3, 4, 5);
