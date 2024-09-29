@@ -39,14 +39,15 @@
                 $notas2 = $_POST["notas2"];
 
                 for($i = 0; $i < 5; $i++){
-                    $medias[$i] = ($notas1[$i] + $notas2[$i]) / 2;
+                    $media[$i] = ($notas1[$i] + $notas2[$i]) / 2;
                 }
 
-                $alunos = array_combine($nomes, $medias);
+                $alunos = array_combine($nomes, $media);
                 ksort($alunos);
                 echo"<p>Lista de alunos</p>";
                 foreach($alunos as $key => $value){
                     echo"<p>Nome: $key - Média: $value</p>";
+                    
                 }
             }catch(Exception $e){
                 echo"ERRO!".$e->getMessage();
